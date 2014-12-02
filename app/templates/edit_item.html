@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Diglib - Edit{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Edit {{ formName }}</h1>
+</div>
+<div class="col-md-12">
+{% if current_user.is_authenticated() %}
+    {% if form %}
+        {{ wtf.quick_form(form) }}
+    {% endif %}
+{% else %}
+    <h1>Please Login!</h1>
+{% endif %}
+</div>
+{% endblock %}
